@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Scoops</title>
+
+  <style>
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#fff5f8;
+      color:#333;
+    }
+
+    /* Navbar */
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 80px;
+      background:#ff4fa3;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      color:white;
+      font-size:32px;
+      font-weight:bold;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffe066;
+    }
+
+    /* Hero Section */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:80px;
+      flex-wrap:wrap;
+      gap:50px;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h1{
+      font-size:70px;
+      margin-bottom:20px;
+      line-height:1.2;
+      color:#ff4fa3;
+    }
+
+    .hero-text span{
+      color:#ff9800;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      line-height:30px;
+      margin-bottom:30px;
+      color:#555;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      background:#ff4fa3;
+      color:white;
+      text-decoration:none;
+      border-radius:10px;
+      transition:0.3s;
+      font-size:16px;
+    }
+
+    .btn:hover{
+      background:#ff2f8c;
+    }
+
+    .hero img{
+      width:450px;
+      border-radius:30px;
+      box-shadow:0 0 30px rgba(255,79,163,0.4);
+    }
+
+    /* Flavours Section */
+
+    .flavours-section{
+      padding:80px 50px;
+      min-height:100vh;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:45px;
+      color:#ff4fa3;
+    }
+
+    .flavours{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    .card{
+      width:320px;
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 0 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .card-content h3{
+      font-size:28px;
+      margin-bottom:10px;
+      color:#ff4fa3;
+    }
+
+    .price{
+      display:block;
+      color:#ff9800;
+      font-weight:bold;
+      margin-bottom:15px;
+      font-size:18px;
+    }
+
+    .card-content p{
+      line-height:26px;
+      color:#666;
+      margin-bottom:20px;
+    }
+
+    /* Services */
+
+    .services{
+      background:#fff0f5;
+      padding:80px 20px;
+      min-height:100vh;
+    }
+
+    .service-container{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+      margin-top:50px;
+    }
+
+    .service-box{
+      width:300px;
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.3s;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .service-box:hover{
+      background:#ff4fa3;
+      color:white;
+    }
+
+    .service-box h3{
+      margin-bottom:15px;
+      font-size:26px;
+    }
+
+    .service-box p{
+      line-height:28px;
+    }
+
+    /* Contact */
+
+    .contact-section{
+      padding:80px 20px;
+      min-height:100vh;
+    }
+
+    .contact-container{
+      display:flex;
+      justify-content:center;
+    }
+
+    form{
+      width:100%;
+      max-width:600px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    form input,
+    form textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      background:white;
+      font-size:16px;
+      outline:none;
+      box-shadow:0 0 8px rgba(0,0,0,0.1);
+    }
+
+    form textarea{
+      height:150px;
+      resize:none;
+    }
+
+    form input:focus,
+    form textarea:focus{
+      border:2px solid #ff4fa3;
+    }
+
+    /* Footer */
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#ff4fa3;
+      color:white;
+    }
+
+    /* Responsive */
+
+    @media(max-width:900px){
+
+      nav{
+        padding:20px 30px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:50px 30px;
+      }
+
+      .hero-text h1{
+        font-size:50px;
+      }
+
+      .hero img{
+        width:100%;
+      }
+
+      .flavours-section,
+      .services,
+      .contact-section{
+        padding:50px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+
+    <div class="logo">Sweet Scoops</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#flavours">Flavours</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- Hero Section -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h1>Taste The <span>Sweetness</span></h1>
+
+      <p>
+        Welcome to Sweet Scoops Ice Cream Parlour.
+        Enjoy delicious flavours, creamy textures, and refreshing desserts.
+      </p>
+
+      <a href="#flavours" class="btn">Explore Flavours</a>
+
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop"
+      alt="Ice Cream">
+
+  </section>
+
+
+  <!-- Flavours Section -->
+
+  <section class="flavours-section" id="flavours">
+
+    <div class="section-title">
+      <h2>Popular Flavours</h2>
+    </div>
+
+    <div class="flavours">
+
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=1200&auto=format&fit=crop"
+          alt="Chocolate">
+
+        <div class="card-content">
+
+          <h3>Chocolate</h3>
+
+          <span class="price">₹120</span>
+
+          <p>
+            Rich creamy chocolate ice cream topped with chocolate syrup.
+          </p>
+
+          <a href="#contact" class="btn">Order Now</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=1200&auto=format&fit=crop"
+          alt="Strawberry">
+
+        <div class="card-content">
+
+          <h3>Strawberry</h3>
+
+          <span class="price">₹100</span>
+
+          <p>
+            Fresh strawberry flavoured ice cream with sweet fruity taste.
+          </p>
+
+          <a href="#contact" class="btn">Order Now</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <img
+          src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?q=80&w=1200&auto=format&fit=crop"
+          alt="Vanilla">
+
+        <div class="card-content">
+
+          <h3>Vanilla</h3>
+
+          <span class="price">₹90</span>
+
+          <p>
+            Classic vanilla ice cream with smooth creamy texture.
+          </p>
+
+          <a href="#contact" class="btn">Order Now</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Services -->
+
+  <section class="services" id="services">
+
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="service-container">
+
+      <div class="service-box">
+
+        <h3>Fresh Ice Cream</h3>
+
+        <p>
+          Prepared daily using premium quality ingredients.
+        </p>
+
+      </div>
+
+
+      <div class="service-box">
+
+        <h3>Home Delivery</h3>
+
+        <p>
+          Fast and safe delivery available for all nearby locations.
+        </p>
+
+      </div>
+
+
+      <div class="service-box">
+
+        <h3>Party Orders</h3>
+
+        <p>
+          Special bulk orders available for birthdays and events.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+
+  <section class="contact-section" id="contact">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact-container">
+
+      <form>
+
+        <input type="text" placeholder="Enter Your Name" required>
+
+        <input type="email" placeholder="Enter Your Email" required>
+
+        <textarea placeholder="Enter Your Order"></textarea>
+
+        <button type="submit" class="btn">Send Order</button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>© 2026 Sweet Scoops Ice Cream Parlour</p>
+
+  </footer>
+
+</body>
+
+</html>
